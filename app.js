@@ -9,8 +9,18 @@ function agregarAmigo() {
         if (validarInput(nombreAmigo)) {
             amigos.push(nombreAmigo);
             limpiarCaja();
-            console.log(amigos);
+            document.getElementById("amigo").focus(); //Foco al input
+            actualizarAmigo();
         }
+    }
+}
+
+function actualizarAmigo (){
+    let ulLista = document.getElementById('listaAmigos');
+    ulLista.innerHTML = '';
+
+    for (let i = 0; i < amigos.length; i++) {
+        ulLista.innerHTML += `<li>${amigos[i]}</li>`;
     }
 }
 
