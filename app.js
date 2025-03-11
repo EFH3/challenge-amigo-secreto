@@ -13,6 +13,7 @@ function agregarAmigo() {
             actualizarAmigo();
         }
     }
+    return;
 }
 
 function actualizarAmigo (){
@@ -22,6 +23,20 @@ function actualizarAmigo (){
     for (let i = 0; i < amigos.length; i++) {
         ulLista.innerHTML += `<li>${amigos[i]}</li>`;
     }
+    return;
+}
+
+function sortearAmigo() {
+    
+    if (amigos.length === 0){
+        alert('Debes ingresar los nombres correspondientes.')
+    } else{
+        let numeroGenerado = Math.floor(Math.random()*amigos.length);
+
+        let liResultado = document.getElementById('resultado');
+        liResultado.innerHTML = amigos[numeroGenerado];
+    }
+    return;
 }
 
 function limpiarCaja() {
