@@ -31,6 +31,7 @@ function sortearAmigo() {
     if (amigos.length === 0){
         alert('Debes ingresar los nombres correspondientes.')
     } else{
+        eliminarNombresDuplicados();
         let numeroGenerado = Math.floor(Math.random()*amigos.length);
 
         let liResultado = document.getElementById('resultado');
@@ -55,3 +56,28 @@ function validarInput(nombreAmigo) {
     }
     return inputValido;
 }
+
+function nombresDuplicados(lista) {
+    return new Set(lista).size !== lista.length;
+}
+
+function eliminarNombresDuplicados() {
+    if (nombresDuplicados(amigos)) {
+        let confirmacion = confirm('Contienes nombres duplicados en la lista, ¿Deseas eliminarlos?');
+        if (confirmacion) {
+            amigos = [...new Set(amigos)];
+            alert("Nombres eliminados");
+            actualizarAmigo();
+            console.log(amigos);
+        } else {
+            alert("Operación cancelada");
+        }
+    }
+}
+
+document.getElementById('amigo').addEventListener('keypress', function (event) {
+    if (event.key === 'Enter') {
+        event.preventDefault(); // Evita el comportamiento predeterminado (como enviar formularios)
+        agregarAmigo();
+    }
+});
