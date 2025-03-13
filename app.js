@@ -1,7 +1,7 @@
 let amigos = [];
 
 function agregarAmigo() {
-    let nombreAmigo = document.getElementById('amigo').value.trim(); //trim elimina los espacios en blanco iniciales y finales
+    let nombreAmigo = document.getElementById('amigo').value.trim();
 
     if (nombreAmigo === '') {
         alert('Por favor, inserte un nombre');
@@ -9,7 +9,7 @@ function agregarAmigo() {
         if (validarInput(nombreAmigo)) {
             amigos.push(nombreAmigo);
             limpiarCaja();
-            document.getElementById("amigo").focus(); //Foco al input
+            document.getElementById("amigo").focus();
             actualizarAmigo();
         }
     }
@@ -45,7 +45,7 @@ function limpiarCaja() {
 }
 
 function validarInput(nombreAmigo) {
-    let letras = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/; // Solo letras y espacios
+    let letras = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
     let inputValido = false;
 
     if (letras.test(nombreAmigo)) {
@@ -77,7 +77,7 @@ function eliminarNombresDuplicados() {
 
 document.getElementById('amigo').addEventListener('keypress', function (event) {
     if (event.key === 'Enter') {
-        event.preventDefault(); // Evita el comportamiento predeterminado (como enviar formularios)
+        event.preventDefault();
         agregarAmigo();
     }
 });
